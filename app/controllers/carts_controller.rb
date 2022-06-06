@@ -8,6 +8,9 @@ class CartsController < ApplicationController
     end
 
     def show
+        @cart = current_user.cart
+        @products = @cart.get_products
+
     end
 
     def edit 
