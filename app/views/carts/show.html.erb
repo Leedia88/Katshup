@@ -36,7 +36,7 @@
         <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
             <div class="col text-right">&euro;</div>
         </div>
-        <%= link_to "Valider", class:"btn", remote: true %>
+        <%= link_to "Payer la commande", new_user_order_path(current_user.id) ,class:"btn" %>
     </div>
 </div>
 </div>

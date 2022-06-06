@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
 
-    #creation simultanée avec création user
     def index
     end
     
@@ -10,7 +9,6 @@ class CartsController < ApplicationController
     def show
         @cart = current_user.cart
         @products = @cart.get_products
-
     end
 
     def edit 
@@ -19,6 +17,5 @@ class CartsController < ApplicationController
     def updated 
     end
 
-    #destroy avec user
 
 end

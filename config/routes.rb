@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :carts, path: :panier
-    resources :orders , only: [:create, :update]
+    resources :orders , only: [:new, :create, :update]
   end
   
   resources :products , only: [:index, :show] do
