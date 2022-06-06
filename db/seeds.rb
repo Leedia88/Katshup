@@ -8,4 +8,45 @@
 
 require 'faker'
 
-User.create("")
+Cart.destroy_all 
+User.destroy_all
+Product.destroy_all 
+CartProduct.destroy_all 
+Order.destroy_all 
+ProductOrder.destroy_all 
+
+
+### Generate 10 users
+10.times do
+  name = Faker::Name.first_name
+  User.create!(first_name: name,
+    email: "#{name}#{rand(1..9)}@mail.com",
+    password: 'password')
+end
+
+### Generate a cart for each user
+User.all.each {|user| Cart.create(user: user)}
+
+### Generate 10 products
+10.times do
+  Product.create(title: Faker::Creature::Cat.breed,
+    description: Faker::Lorem.paragraph,
+    price: rand(1..1000))
+end
+
+### Add 1-5 products to each cart
+Cart.all.each do |cart|
+  rand(1..5).times do
+    CartProduct.create(cart: cart, product: Product.all.sample)
+  end
+end
+
+### Generate 5 orders
+5.times do
+  Order.create(user: User.all.sample)
+end
+
+### Generate product and order connection
+Order.all.each do |order|
+  ProductOrder.create(order:order,product: Product.all.sample)
+end
