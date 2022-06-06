@@ -1,12 +1,12 @@
 <div class="d-flex">   
-   <div>
+   <div class="container text-center">
       <%if @product.image.attached?%>
-         <%= image_tag @product.image, alt: 'image' %>
+         <%= image_tag @product.image, alt: 'image', style: "width:500px;"%>
       <%else%>
          <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
       <%end%>
-      <img src="https://st.depositphotos.com/1000122/2651/i/600/depositphotos_26517721-stock-photo-beautiful-cute-little-kitten-meowing.jpg"
-      style="width:70%">
+      <%# <img src="https://st.depositphotos.com/1000122/2651/i/600/depositphotos_26517721-stock-photo-beautiful-cute-little-kitten-meowing.jpg"
+      style="width:70%"> %>
    </div>
 
    <div>
