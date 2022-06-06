@@ -3,7 +3,16 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user)
     @user = user 
-    @url  = 'http://katshup.fr/login' 
+    @url  = 'https://katshup.herokuapp.com/' 
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
+
+  def confirm_purchase(order)
+    @order = order
+    @user = order.user
+    @product_list = @order.get_products
+    @url  = 'https://katshup.herokuapp.com/' 
+    mail(to: @user.email, subject: 'Confirmation de commande !') 
+  end
+
 end

@@ -1,0 +1,11 @@
+Bonjour <%= @user.first_name%>,
+==========================================================
+ 
+Tu viens de réaliser une commande pour un montant de <%= @order.total_amount%> € et nous t'en remercions.
+ 
+Voici le detail de ta commande :
+<% @product_list.each do |product|%>
+  <%=product.title%> - <%=product.price%> € 
+<%end%>
+
+À très vite sur katshup.com !

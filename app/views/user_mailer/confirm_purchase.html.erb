@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Merci pour ta commande !</h1>
+    <p>
+      Bonjour <%= @user.first_name%>, 
+    </p>
+    <br/>
+    <p>
+      Tu viens de réaliser une commande pour un montant de <%= @order.total_amount%> € et nous t'en remercions.
+    </p>
+
+    </p>
+    <p> À très vite sur katshup.com ! </p>
+  </body>
+</html>
