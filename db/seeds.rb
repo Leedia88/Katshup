@@ -26,9 +26,6 @@ Product.destroy_all
     password: 'password')
 end
 
-### Generate a cart for each user
-User.all.each {|user| Cart.create(user: user)}
-
 ### Generate 20 products
 20.times do
   Product.create(title: Faker::Creature::Cat.breed,
