@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
 
     #creation simultanée avec création user
+    def index
+    end
+    
     def create
     end
 
