@@ -43,7 +43,7 @@
 
                       <li style="margin-top:10px" >
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <%= link_to 'Mon panier', product_cartproduct_path(product.id), class: 'css_class', style: 'color:black' %>
+                        <%= link_to 'Mon panier', user_cart_path(current_user.id, current_user.cart.id), class: 'css_class', style: 'color:black' %>
                       </li>
                 
                       <li style="margin-top:10px">
