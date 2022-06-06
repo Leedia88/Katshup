@@ -27,7 +27,7 @@ end
 ### Generate a cart for each user
 User.all.each {|user| Cart.create(user: user)}
 
-### Generate 10 products
+### Generate 20 products
 20.times do
   Product.create(title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph,
