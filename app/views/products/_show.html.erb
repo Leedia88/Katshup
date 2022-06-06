@@ -4,10 +4,10 @@
       style="width:70%">
    </div>
 
-
    <div>
       <p> <span> TITRE : </span><%= @product.title%></p>
       <p> <span> DESCRIPTION : </span> <%= @product.description%></p>
       <p> <span> PRICE : </span><%= @product.price%></p>
+      <%= link_to "Ajouter au panier", product_cartproducts_path(@product), method: :post,  :class => "btn btn-primary mx-2" %>
    </div>
 </div>
