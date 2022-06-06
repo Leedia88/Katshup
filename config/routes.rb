@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
     resources :orders , only: [:new, :create, :update, :show]
   end
-  
-  resources :products , only: [:index, :show] 
+
+  resources :products , only: [:index, :show, :edit] do
+    resources :images, only: [:create]
+  end
 end

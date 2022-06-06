@@ -19,3 +19,8 @@
    right: 0;
    left: auto;
  }
+
+ .btn {
+   height: 35px;
+   max-width : 200px;
+ }
