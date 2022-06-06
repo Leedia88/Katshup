@@ -42,9 +42,6 @@ class UsersController < ApplicationController
       end
     end
 
-    def set_cart
-      Cart.create(user: current_user)
-      redirect_to root_path
-    end
+    
 
 end
