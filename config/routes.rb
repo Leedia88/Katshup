@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     end
     resources :orders , only: [:new, :create, :update]
   end
-  
+
   resources :products , only: [:index, :show] 
 end

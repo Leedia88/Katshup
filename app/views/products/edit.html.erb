@@ -1,0 +1,15 @@
+<h1>Page Produit</h1>
+
+<p>Bienvenue sur la page de modification du produit : <%=@product.id%></p>
+<h3>Photo actuelle actuelle</h3>
+<%if @product.image.attached?%>
+  <%= image_tag @product.image, alt: 'avatar' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
+<%end%>
+
+<h3>Changer d'image ?</h3>
+<%= form_tag product_images_path(@product), multipart: true do %>
+  <%= file_field_tag :image %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
