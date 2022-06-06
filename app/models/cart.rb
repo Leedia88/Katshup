@@ -18,4 +18,8 @@ class Cart < ApplicationRecord
 
   end
 
+  def get_cartproduct(product)
+    CartProduct.find_by(product: product, cart: self)
+  end
+
 end
