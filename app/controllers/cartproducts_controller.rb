@@ -2,7 +2,7 @@ class CartproductsController < ApplicationController
     before_action :authenticate_user!
 
     def create
-        @product = Product.find(params[:product_id])
+        @product = Product.find(params[:product])
         CartProduct.create!(product: @product, cart: current_user.cart)
         puts "j'ai ajouté un cartproduct"
         respond_to do |format|
@@ -12,9 +12,9 @@ class CartproductsController < ApplicationController
     end
 
     def destroy
-        @product = Product.find(params[:product_id])
-        @product.destroy 
-            redirect_to product_cartproduct_path
+        @cart_product = CartProduct.find(params[:id])
+        @cart_product.destroy 
+        redirect_to product_cartproduct_path
     end
 
 end

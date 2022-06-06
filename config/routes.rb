@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :users do
-    resources :carts, path: :panier
+    resources :carts, path: :panier do 
+      resources :cartproducts
+    end
     resources :orders , only: [:new, :create, :update]
   end
   
-  resources :products , only: [:index, :show] do
-    resources :cartproducts
-  end
-
-  
+  resources :products , only: [:index, :show] 
 end
