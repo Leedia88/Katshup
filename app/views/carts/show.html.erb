@@ -1,1 +1,42 @@
-<%= render 'carts/show' %>
+<%# <%= render 'carts/show' locals: {products : @products}%>
+
+ <div class="card">
+<div class="row">
+    <div class="col-md-8 cart">
+        <div class="title">
+            <div class="row">
+                <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                <div class="col align-self-center text-right text-muted"> <%= @products.count %></div>
+            </div>
+        </div>    
+       <% @products.each do |product| %>
+        <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+                <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                <div class="col">
+                    <div class="row text-muted"><%= product.title%></div>
+                    <div class="row"><%= product.description%></div>
+                </div>
+                <div class="col">
+                    <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                </div>
+                <div class="col">&euro; <%=product.price%> <span class="close">&#10005;</span></div>
+            </div>
+        </div>
+        <% end %>
+        <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+    </div>
+    <div class="col-md-4 summary">
+        <div><h5><b>Summary</b></h5></div>
+        <hr>
+        <div class="row">
+            <div class="col" style="padding-left:0;"><%=@products.count %></div>
+            <div class="col text-right">&euro; 132.00</div>
+        </div>
+        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            <div class="col text-right">&euro;</div>
+        </div>
+        <%= link_to "Valider", class:"btn", remote: true %>
+    </div>
+</div>
+</div>
