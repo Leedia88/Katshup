@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :carts, path: :panier do 
       resources :cartproducts
     end
-    resources :orders , only: [:new, :create, :update]
+    resources :orders , only: [:new, :create, :update, :show]
   end
   
   resources :products , only: [:index, :show] 

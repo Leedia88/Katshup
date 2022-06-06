@@ -1,0 +1,8 @@
+<h2>Le payement à hauteur de <strong><%= @order.total_amount%> €</strong> a bien été réalisé.</h2>
+<h2>Merci encore pour votre achat.</h2>
+
+<h4> Redirection vers la page d'acceuil dans les prochaines secondes </h4>
+
+<meta HTTP-EQUIV="REFRESH" content="4; url=<%= root_path %>">
+
+<h5>Si vous n'etes pas redirigés cliquez <%= link_to "ici", root_path %></h5>
