@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_user, only: [:edit, :show, :update, :new]
 
+
   def show
     @orders = @user.orders
     @cart = @user.cart
@@ -40,5 +41,7 @@ class UsersController < ApplicationController
         redirect_to new_user_registration_path 
       end
     end
+
+    
 
 end
