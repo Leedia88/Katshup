@@ -1,0 +1,63 @@
+ <nav class="navbar navbar-expand-lg shadow-none navbar-light fixed-top nav bg-transparent py-3">
+          <div class="container-fluid">
+              <a class="navbar-brand mt-2  mt-lg-0 font-weight-bold" href="/">
+                <img
+                  style="border-radius:5px"
+                  class="mr-2"
+                  src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/Logo_chat_lui.svg/1024px-Logo_chat_lui.svg.png"
+                  height="35"
+                  loading="lazy"/>
+                  Katshup
+              </a>
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle d-flex align-items-center hidden-arrow btn-account-user"
+                href="#"
+                style="color:black"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false" >
+                  
+                  <% if current_user %>
+                  <i class="fa-solid fa-user-check"></i>
+                    <%=  "#{current_user.first_name}" %>
+                  <% else %>
+                    <i class="fa-solid fa-user-plus"></i>
+                  <% end %>
+              </a>
+              <ul
+                style="padding-left:0px !important"
+                class="dropdown-menu dropdown-menu-start"
+                aria-labelledby="navbarDropdownMenuAvatar">
+                <li style="color:black" class="dropdown-item">
+                  <% if current_user %>
+                    <ul style="padding-left:0px !important">
+                      <li >
+                        <i class="fa-solid fa-user"></i>
+                        <%= link_to 'Mon compte', user_path(current_user.id), class: 'css_class', style: 'color:black' %>
+                      </li>
+
+                      <li style="margin-top:10px" >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <%= link_to 'Mon panier', user_path(current_user.id), class: 'css_class', style: 'color:black' %>
+                      </li>
+                
+                      <li style="margin-top:10px">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <%= link_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
+                      </li>
+                    </ul>
+                      <% else %>
+                      <!-- not logged in -->
+                   <%= link_to 'Se connecter', new_user_session_path, class: 'css_class', style: 'color:black' %> / <%= link_to 'Sinscrire', new_user_registration_path, class: 'css_class', style: 'color:black' %>
+
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+  </nav>
