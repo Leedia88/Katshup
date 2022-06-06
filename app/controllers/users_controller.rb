@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_user, only: [:edit, :show, :update]
+  after_create :set_cart
 
   def show
     @orders = @user.orders
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
         flash[:danger] = "Please log in."
         redirect_to new_user_registration_path 
       end
+    end
+
+    def set_cart
+      Cart.create(user: current_user)
     end
 
 end
