@@ -8,12 +8,14 @@
 
 require 'faker'
 
-Cart.destroy_all 
-User.destroy_all
-Product.destroy_all 
 CartProduct.destroy_all 
-Order.destroy_all 
+Cart.destroy_all 
 ProductOrder.destroy_all 
+Order.destroy_all 
+User.destroy_all
+
+Product.destroy_all 
+
 
 
 ### Generate 10 users
