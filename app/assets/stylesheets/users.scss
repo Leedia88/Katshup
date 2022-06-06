@@ -12,3 +12,23 @@
    background: black;
    color: white;
 }
+
+
+/**** EDIT PROFILE ****/ 
+.bts {
+   width: 100%;
+   border-radius: 5px;
+   background: white;
+   color: black;
+   cursor: pointer;
+}
+
+.bts:hover{
+   background: black;
+   color: white;
+}
+
+.ps {
+   justify-content: flex-start;
+   margin-bottom: 80px;
+}
