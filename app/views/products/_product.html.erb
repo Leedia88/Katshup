@@ -30,13 +30,13 @@
 <hr class="my-0" />
 <div class="card-body pb-0">
   <div class="d-flex justify-content-between">
-    <p><a href="#!" class="text-dark"><%= product.price %></a></p>
+    <p><a href="#!" class="text-dark"><%= product.price %> €</a></p>
   </div>
 </div>
 <hr class="my-0" />
 <div class="card-body">
   <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
-    <button type="button" class="btn btn-primary">Buy now</button>
+    <%= link_to "Ajouter au panier", product_cartproducts_path(product), method: :post,  :class => "btn btn-primary" %>
   </div>
 </div>
 <%#  %>
