@@ -1,12 +1,11 @@
-<div class="card" style="border-radius: 15px;">
+<div class="card my-3" style="border-radius: 15px;">
   <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
             data-mdb-ripple-color="light">
-    <img
-              src="<%=product.image_url%>"
-              style="border-top-left-radius: 15px; border-top-right-radius: 15px;"
-              class="img-fluid"
-              alt="image"
-            />
+      <%if product.image.attached?%>
+        <%= image_tag product.image, alt: 'avatar', style: "width:100%;" %>
+      <%else%>
+        <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
+      <%end%>
             <a href="#!">
               <div class="mask"></div>
             </a>
