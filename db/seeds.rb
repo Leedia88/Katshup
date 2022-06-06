@@ -50,5 +50,7 @@ end
 
 ### Generate product and order connection
 Order.all.each do |order|
-  ProductOrder.create(order:order,product: Product.all.sample)
+  rand(1..5).times do
+    ProductOrder.create(order:order,product: Product.all.sample)
+  end
 end

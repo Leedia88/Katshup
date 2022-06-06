@@ -1,0 +1,9 @@
+<%orders.each do |order|%>
+  <h2>Commande #<%=order.id%></h2>
+  <p>Liste des produits de cette commande :</p>
+  <ul>
+    <%order.products.each do |product|%>
+      <li> <%=product.title%> à <%=product.price%> €</li>
+    <%end%>
+  </ul>
+<%end%>
