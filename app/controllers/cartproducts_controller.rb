@@ -12,6 +12,9 @@ class CartproductsController < ApplicationController
     end
 
     def destroy
+        @product = Product.find(params[:product_id])
+        @product.destroy 
+            redirect_to product_cartproduct_path
     end
 
 end

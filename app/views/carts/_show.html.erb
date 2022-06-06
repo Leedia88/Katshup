@@ -20,6 +20,7 @@
                 </div>
                 <div class="col">&euro; <%=product.price%> <span class="close">&#10005;</span></div>
             </div>
+            <%= link_to "Delete product", product_path(@product.id), method: :delete, class:"btn btn-danger"%><br />
         </div>
         <% end %>
         <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
