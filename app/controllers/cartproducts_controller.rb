@@ -13,8 +13,9 @@ class CartproductsController < ApplicationController
 
     def destroy
         @cart_product = CartProduct.find(params[:id])
+        @cart = @cart_product.cart
         @cart_product.destroy 
-        redirect_to root_path
+        redirect_to user_cart_path(@cart)
     end
 
 end
