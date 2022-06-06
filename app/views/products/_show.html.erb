@@ -13,7 +13,8 @@
       <p> <span> TITRE : </span><%= @product.title%></p>
       <p> <span> DESCRIPTION : </span> <%= @product.description%></p>
       <p> <span> PRICE : </span><%= @product.price%></p>
-      <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2" %>
-
+      <%if current_user%>
+         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2" %>
+      <%end%>
    </div>
 </div>

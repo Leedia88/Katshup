@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
     before_action :set_product, only: [:edit, :show]
 
     def index
-        @products = Product.all
+        @products = Product.all.order(:id)
     end
 
     def show
