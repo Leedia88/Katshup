@@ -15,6 +15,22 @@ ActiveRecord::Schema.define(version: 2022_06_06_081539) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cart_products", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id", unique: true
+  end
+
   create_table "orders", force: :cascade do |t|
     t.float "total_amount"
     t.bigint "user_id"
@@ -55,6 +71,9 @@ ActiveRecord::Schema.define(version: 2022_06_06_081539) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cart_products", "carts"
+  add_foreign_key "cart_products", "products"
+  add_foreign_key "carts", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"
