@@ -12,6 +12,11 @@
                   Katshup
               </a>
           <div class="d-flex align-items-center">
+              <li style="margin-right:20px" >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <%= link_to 'Cart', user_cart_path(current_user.id, current_user.cart.id), style: 'color:black' %>
+                  <span> <%=current_user.cart.products.count%> </span>
+              </li>
             <!-- Icon -->
             <div class="dropdown">
               <a
@@ -24,8 +29,8 @@
                 aria-expanded="false" >
                   
                   <% if current_user %>
-                  <i class="fa-solid fa-user-check"></i>
-                    <%=  "#{current_user.first_name}" %>
+                    <i class="fa-solid fa-user-check" style="margin-right:8px"></i>
+                    <%=  current_user.first_name %>
                   <% else %>
                     <i class="fa-solid fa-user-plus"></i>
                   <% end %>
@@ -39,11 +44,6 @@
                       <li >
                         <i class="fa-solid fa-user"></i>
                         <%= link_to 'Mon compte', user_path(current_user.id), class: 'css_class', style: 'color:black' %>
-                      </li>
-
-                      <li style="margin-top:10px" >
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <%= link_to 'Mon panier', user_cart_path(current_user.id, current_user.cart.id), class: 'css_class', style: 'color:black' %>
                       </li>
                 
                       <li style="margin-top:10px">

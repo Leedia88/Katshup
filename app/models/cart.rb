@@ -23,4 +23,8 @@ class Cart < ApplicationRecord
     CartProduct.find_by(product: product, cart: self)
   end
 
+  def nb_product_in_cart(product)
+    self.products.where(title: product.title).count
+  end
+
 end
