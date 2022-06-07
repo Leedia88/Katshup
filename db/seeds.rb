@@ -16,7 +16,7 @@ User.destroy_all
 
 Product.destroy_all 
 
-
+User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
 
 ### Generate 10 users
 10.times do
@@ -25,8 +25,6 @@ Product.destroy_all
     email: "#{name}#{rand(1..9)}@mail.com",
     password: 'password')
 end
-
-User.first.update(is_admin: true)
 
 ### Generate 20 products
 
