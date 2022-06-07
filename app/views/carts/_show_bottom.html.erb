@@ -1,0 +1,2 @@
+        <div class="col-8 back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+        <div class="col-4 empty-cart"> <%= button_to 'Vider le Panier', user_cart_path(current_user,cart), class:'btn', method: :delete, remote: true %> </div>

@@ -1,0 +1,6 @@
+      <div class="col-7 product-counter" style="padding-left:0;">Total <%=products.count %> articles:</div>
+        <div class="col-5 text-right cart-total-amount"><%=cart.total_amount%> €</div>
+      </div>
+
+      <div class="row mt-3" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;"></div>
+      <%= link_to "Payer la commande", new_user_order_path(current_user.id) ,class:"btn" %>
