@@ -1,45 +1,36 @@
-<div class="card my-3" style="border-radius: 15px;">
-  <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
-            data-mdb-ripple-color="light">
-      <%if product.image.attached?%>
-        <%= image_tag product.image, alt: 'avatar', style: "width:100%;" %>
-      <%else%>
-        <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
-      <%end%>
-            <a href="#!">
-              <div class="mask"></div>
-            </a>
-          </div>
-          <div class="card-body pb-0">
-            <div class="d-flex justify-content-between">
-              <div>
-                <p><a href="#!" class="text-dark"><%= product.title %></a></p>
-    <p class="small text-muted"><%= product.description %></p>
-  </div>
-  <div>
-    <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
+<div class="cardy">
+    <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+        <%if product.image.attached?%>
+          <%= image_tag product.image, alt: 'avatar', style: "width:100%;" %>
+        <%else%>
+          <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
+        <%end%>
     </div>
-  </div>
+    <div class="card-body pb-0">
+        <div class="d-flex justify-content-between">
+              <div>
+                  <p class="text-dark product-title"><%= product.title %></p>
+                  <p class="small text-muted"><%= product.description %></p>
+              </div>
+              <div>
+                  <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <hr class="my-0" />
+    <hr class="my-0" />
+    <div>
+         <p class="text-dark product-price"><%= product.price %> €</p>
+        <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+            <%if current_user%>
+              <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
+            <%end%>
+            <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
+        </div>
+    </div>
 </div>
-</div>
-<hr class="my-0" />
-<div class="card-body pb-0">
-  <div class="d-flex justify-content-between">
-    <p><a href="#!" class="text-dark"><%= product.price %> €</a></p>
-  </div>
-</div>
-<hr class="my-0" />
-<div class="card-body">
-  <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
-    <%if current_user%>
-      <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
-    <%end%>
-    <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
-  </div>
-</div>
-<%#  %>
-<%#  %>
