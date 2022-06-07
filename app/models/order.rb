@@ -3,8 +3,6 @@ class Order < ApplicationRecord
   has_many :product_orders
   has_many :products, through: :product_orders
 
-  after_create :send_confirmation_mail
-
   def send_confirmation_mail
     UserMailer.confirm_purchase(self).deliver_now
   end

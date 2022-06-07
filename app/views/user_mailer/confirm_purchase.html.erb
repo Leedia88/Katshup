@@ -12,6 +12,13 @@
     <p>
       Tu viens de réaliser une commande pour un montant de <%= @order.total_amount%> € et nous t'en remercions.
     </p>
+    <p>
+      Voici le detail de ta commande :
+      <ul>
+      <% @order.products.each do |product|%>
+      <li> <%= product.title %> - <%= product.price %> € </li>
+      <%end%>
+      </ul>
 
     </p>
     <p> À très vite sur katshup.com ! </p>
