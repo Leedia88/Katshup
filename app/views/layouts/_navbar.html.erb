@@ -13,9 +13,11 @@
               </a>
           <div class="d-flex align-items-center">
               <li style="margin-right:20px">
-                  <i class="fa-solid fa-cart-shopping"></i>
-                  <%= link_to 'Cart', user_cart_path(current_user.id, current_user.cart.id), style: 'color:black' %>
-                  <span id="item-count"> <%=current_user.cart.products.count%> </span>
+                  <%if current_user%>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <%= link_to 'Cart', user_cart_path(current_user.id, current_user.cart.id), style: 'color:black' %>
+                    <span id="item-count"> <%=current_user.cart.products.count%> </span>
+                  <%end%>
               </li>
             <!-- Icon -->
             <div class="dropdown">
