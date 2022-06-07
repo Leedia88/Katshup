@@ -4,6 +4,9 @@
     </div>
 
     <div class="orders-list">
-      <%= render partial: 'order_list', locals: {orders: @orders} %>
+      <%@orders.each do |order|%>
+          <%= render partial: 'order', locals: {order: order} %>
+      <%end%>
+      
     </div>
 </div>

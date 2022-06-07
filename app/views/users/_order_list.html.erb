@@ -1,29 +1,5 @@
-<%orders.each do |order|%>
-  <div class="accordion testitem" id="accordionExample">
-    <div class="accordion-item ">
-      <h2 class="accordion-header " id="heading<%=order.id%>">
-        <button
-          class="accordion-button collapsed accordion-btn"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#collapse<%=order.id%>"
-          aria-expanded="false"
-          aria-controls="collapse<%=order.id%>"
-        >
-        <div class="title-content">
-          <h2>Commande n°<%=order.id%></h2>
-          <h3>View details</h3>
-        </div>
-        </button>
-      </h2>
-      <div id="collapse<%=order.id%>" class="accordion-collapse collapse order-content" aria-labelledby="heading<%=order.id%>" data-mdb-parent="#accordionExample">
-          <h5> <%=order.products.count%> produits </h5>
-          <%order.products.each do |product|%>
-            <div class="accordion-body">
-                <li> <%=product.title%> à <%=product.price%> €</li>
-            </div>
-          <%end%>
-      </div>
-    </div>
-  </div>
-<%end%>
+<div class="orders-list">
+      <%orders.each do |order|%>
+          <%= render partial: 'users/order', locals: {order: order} %>
+      <%end%>
+</div>

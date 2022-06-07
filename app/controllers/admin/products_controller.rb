@@ -19,9 +19,9 @@ class Admin::ProductsController < ApplicationController
     end
 
     def destroy
-        @event.destroy
-        flash[:success] = "Event was successfully deleted."
-        redirect_to admin_events_path
+        @product.destroy
+        flash[:success] = "Product was successfully deleted."
+        redirect_to admin_products_path
     end
 
     private

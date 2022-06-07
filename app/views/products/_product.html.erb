@@ -3,14 +3,15 @@
         <%if product.image.attached?%>
           <%= image_tag product.image, alt: 'avatar', style: "width:100%;" %>
         <%else%>
-          <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
+          <img src="<%=product.image_url%>" style="width:100%" alt="image chat">
         <%end%>
     </div>
     <div>
         <div class="d-flex justify-content-between">
               <div>
-                  <p class="text-dark product-title"><%= product.title %></p>
+                  <p class="text-dark product-title"><%= product.title %> </p>
                   <p class="small text-muted"><%= product.description %></p>
+                  
               </div>
               <div>
                   <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
@@ -25,12 +26,13 @@
     <hr class="my-0" />
     <hr class="my-0" />
     <div>
-         <p class="text-dark product-price"><%= product.price %> €</p>
-        <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
-            <%if current_user%>
-              <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
-            <%end%>
-            <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
-        </div>
+      <span class="badge badge-pill badge-secondary"><%= product.category.name %></span>
+      <p class="text-dark product-price"><%= product.price %> €</p>
+      <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+          <%if current_user%>
+            <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
+          <%end%>
+          <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
+      </div>
     </div>
 </div>

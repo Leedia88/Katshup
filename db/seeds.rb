@@ -13,9 +13,21 @@ Cart.destroy_all
 ProductOrder.destroy_all 
 Order.destroy_all 
 User.destroy_all
-
 Product.destroy_all 
+Category.destroy_all
 
+User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
+### Generate 10 categories
+Category.create(name:'chaton')
+Category.create(name:'joie')
+Category.create(name:'amour')
+Category.create(name:'dodo')
+Category.create(name:'grincheux')
+Category.create(name:'drole')
+Category.create(name:'colere')
+Category.create(name:'triste')
+Category.create(name:'neutre')
+Category.create(name:'autre')
 
 
 ### Generate 10 users
@@ -26,13 +38,32 @@ Product.destroy_all
     password: 'password')
 end
 
-User.first.update(is_admin: true)
-
 ### Generate 20 products
+
+images = ["http://4.bp.blogspot.com/-XBJp427kEGM/T9xVSnnUFSI/AAAAAAAAAF8/Nvh7FaWQpUw/s1600/Siamese+Kittens.jpg",
+      "https://www.vets4pets.com/siteassets/species/cat/cat-sunset.jpg?w=585&amp;scale=down",
+    "https://amolife.com/image/Pictures_of_Cute_Cats_2.jpeg",
+  "https://amolife.com/image/Pictures_of_Cute_Cats_6.jpg",
+"http://c3.thejournal.ie/media/2018/01/grumpy-cat-5-390x285.jpg",
+"https://www.somepets.com/wp-content/uploads/2013/05/funny-cat-photos-that-were-perfectly-timed-9.jpg",
+"https://www.somepets.com/wp-content/uploads/2013/05/funny-cat-photos-that-were-perfectly-timed-10.jpg",
+"https://petsnurturing.com/wp-content/uploads/2018/08/Spotted-cat-breeds-2.jpg",
+"https://pulpbits.net/wp-content/uploads/2014/01/Tabby-Cat-Images-728x988.jpg",
+"https://www.debilder.net/wp-content/uploads/2018/12/Super-Funny-Cat-Pictures-Bilder.jpg",
+"https://www.somepets.com/wp-content/uploads/2014/07/Jumping-cats19.jpg",
+"https://www.somepets.com/wp-content/uploads/2014/07/Jumping-cats23.jpg",
+"https://www.somepets.com/wp-content/uploads/2014/07/Jumping-cats13.jpeg",
+"https://cdn.fstoppers.com/styles/full/s3/media/2017/04/13/cat-ugly.jpg",
+"https://540934-1733880-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/04/oncilla-AdobeStock_128887437-1024x683.jpg",
+"https://540934-1733880-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2020/05/Rusty-spotted-cat-AdobeStock_188804492-1024x683.jpg",
+"https://a-z-animals.com/media/2021/04/Smallest-Cats_-Oncilla-1024x535.jpg"
+]
 20.times do
   Product.create(title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph,
-    price: rand(1..1000))
+    price: rand(1..1000),
+    category: Category.all.sample,
+  image_url: images.sample)
 end
 
 ### Add 1-5 products to each cart
