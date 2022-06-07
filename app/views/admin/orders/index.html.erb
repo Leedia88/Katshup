@@ -1,0 +1,9 @@
+<div class="container-fluid">
+<h1>Liste des commandes réalisées sur le site</h1>
+
+<div class="user-info-container container d-flex">
+    <div class="orders-list">
+    <%= render partial: 'users/order_list', locals: {orders: @orders} %>
+    </div>
+</div>
+</div>
