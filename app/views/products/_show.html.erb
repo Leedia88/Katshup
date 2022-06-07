@@ -14,7 +14,7 @@
       <p> <span> DESCRIPTION : </span> <%= @product.description%></p>
       <p> <span> PRICE : </span><%= @product.price%></p>
       <%if current_user%>
-         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2" %>
+         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
       <%end%>
    </div>
 </div>
