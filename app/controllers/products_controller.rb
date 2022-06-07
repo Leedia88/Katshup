@@ -5,13 +5,7 @@ class ProductsController < ApplicationController
         @products = Product.all.order(:id)
     end
 
-    def show
-    end
-
     def edit
-    end
-
-    def update
     end
 
     private

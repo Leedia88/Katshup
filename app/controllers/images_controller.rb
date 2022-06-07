@@ -3,6 +3,6 @@ class ImagesController < ApplicationController
     def create
           @product = Product.find(params[:product_id])
           @product.image.attach(params[:image])
-          redirect_to(root_path)
+          redirect_to(edit_admin_product_path(@product))
     end
 end
