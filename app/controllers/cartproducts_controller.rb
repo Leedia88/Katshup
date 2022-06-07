@@ -6,7 +6,7 @@ class CartproductsController < ApplicationController
         CartProduct.create!(product: @product, cart: current_user.cart)
         respond_to do |format|
             format.html {redirect_to root_path}
-            format.js
+            format.js {}
         end
     end
 
