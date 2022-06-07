@@ -25,7 +25,11 @@
             </div>
         </div>
         <% end %>
-        <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+
+        <div class="row bottom-cart ">
+        <div class="col-8 back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+        <div class="col-4 empty-cart"> <%= button_to 'Vider le Panier', user_cart_path(current_user,@cart), class:'btn', method: :delete, remote: true %> </div>
+        </div>
     </div>
     <div class="col-md-4 summary">
         <div><h5><b>Détails</b></h5></div>
