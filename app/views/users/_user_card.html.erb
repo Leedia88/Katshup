@@ -1,9 +1,8 @@
-<div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+<div class="rounded-top text-white d-flex flex-row align-content-bottom" style="background-color: #000; height:200px;">
   <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-      style="width: 150px; z-index: 1">
-      <%= link_to 'Editer Profil', edit_user_path, class:"bt", style: "z-index: 1;" %>
+    <%if @user.avatar.attached?%>
+       <%= image_tag @user.avatar, alt: 'avatar', style: "width :100%;"%> 
+    <%end%>
   </div>
   <div class="ml-3" style="margin-top: 130px;">
     <h3><%= user.first_name%></h3>
@@ -11,6 +10,7 @@
   </div>
 </div>
 <div class="p-4 text-black" style="background-color: #f8f9fa;">
+<%= link_to 'Editer Profil', edit_user_path, class:"bt", style: "z-index: 1;" %>
 </div>
 <div class="card-body p-4 text-black">
   <div class="mb-5">
