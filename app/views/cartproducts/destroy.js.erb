@@ -7,6 +7,11 @@ if ("<%=@delete_scope%>" === "all"){
    document.getElementById("item-count").innerHTML = totalCount - qtyProduct
    //MODIF CART SHOW
    document.getElementById("product-<%=@product.id%>").remove()
+   //CHANGE CART TOTAL PRICE
+   productPrice = parseInt("<%=@product.price%>")
+   totalPrice = document.getElementById("cart-total-amount").innerHTML
+   totalPrice = parseInt(totalPrice)
+   document.getElementById("cart-total-amount").innerHTML = totalPrice - productPrice * qtyProduct
    
 } else {
 // Modif NAVBAR  
@@ -17,10 +22,10 @@ if ("<%=@delete_scope%>" === "all"){
    qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
    qtyProduct = parseInt(qtyProduct)
    document.getElementById("qty_product-<%=@product.id%>").innerHTML = qtyProduct - 1
-   productPrice = parseInt("<%=@product.price%>")
    //CHANGE CART TOTAL PRICE
+   productPrice = parseInt("<%=@product.price%>")
    totalPrice = document.getElementById("cart-total-amount").innerHTML
    totalPrice = parseInt(totalPrice)
    document.getElementById("cart-total-amount").innerHTML = totalPrice - productPrice
 }
-//DELETE ALL ITEM LIGN 
+
