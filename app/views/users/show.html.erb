@@ -1,7 +1,9 @@
-<div class="show-card">
-  <%= render partial: 'user_card', locals: {user: @user} %>
-</div>
+<div class="user-info-container" >
+    <div class="show-card">
+      <%= render partial: 'user_card', locals: {user: @user} %>
+    </div>
 
-<div class="orders-list">
-  <%= render partial: 'order_list', locals: {orders: @orders} %>
+    <div class="orders-list">
+      <%= render partial: 'order_list', locals: {orders: @orders} %>
+    </div>
 </div>
