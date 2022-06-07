@@ -12,7 +12,7 @@
                 <span class="border px-1" id="qty_product-<%=product.id%>"><%= cart.nb_product_in_cart(product)%></span>
                 <%= link_to "+", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), id: "add-product", method: :post, remote: true%>
             </div>
-            <div class="col">&euro; <%=product.price%> 
+            <div class="col"><%=product.price%> &euro;
                 <span class="close" id="remove-all"> 
                     <%= link_to 'Retirer', user_cart_cartproduct_path(current_user, current_user.cart, cart.get_cartproduct(product), delete_scope: 'all', product: product.id) ,style: 'color:black', method: :delete, remote: true %>
                 </span>
