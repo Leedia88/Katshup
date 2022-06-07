@@ -1,3 +1,15 @@
+// MODIF NAVBAR 
 var totalCount = document.getElementById("item-count").innerHTML
 var totalCount = parseInt(totalCount)
 document.getElementById("item-count").innerHTML = totalCount + 1
+
+// MODIF CART SHOW
+
+qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
+qtyProduct = parseInt(qtyProduct)
+document.getElementById("qty_product-<%=@product.id%>").innerHTML = qtyProduct + 1
+productPrice = parseInt("<%=@product.price%>")
+totalPrice = document.getElementById("cart-total-amount").innerHTML
+totalPrice = parseInt(totalPrice)
+document.getElementById("cart-total-amount").innerHTML = totalPrice + productPrice
+
