@@ -19,7 +19,7 @@
                 </div>
                 <div class="col">&euro; <%=product.price%> 
                     <span class="close"> 
-                        <%= link_to 'supp', user_cart_cartproduct_path(current_user, current_user.cart, @cart.get_cartproduct(product)), style: 'color:black', method: :delete %>
+                        <%= link_to 'Retirer', user_cart_cartproduct_path(current_user, current_user.cart, @cart.get_cartproduct(product)), style: 'color:black', method: :delete %>
                     </span>
                 </div>
             </div>
