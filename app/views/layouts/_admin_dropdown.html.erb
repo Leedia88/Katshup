@@ -1,0 +1,27 @@
+            
+<div id="dropdown-navbar-admin" class="dropdown">
+  <a
+                class="dropdown-toggle d-flex align-items-center hidden-arrow btn-account-user"
+                href="#"
+                style="color:black"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false" >
+      <i class="fa-solid fa-gears"></i>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdownMenuAvatar">
+    <li class="dropdown-item user-dropdown-container">
+        <ul class="user-dropdown-list ">
+          <li  >
+            <i class="fa-solid fa-images"></i>
+            <%= link_to 'Produits', admin_products_path, class: 'css_class', style: 'color:black' %>
+          </li>
+          <li>
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <%= link_to 'Commandes', admin_orders_path, class: 'css_class', style: 'color:black'%>
+          </li>
+        </ul>
+    </li>
+  </ul>
+</div>

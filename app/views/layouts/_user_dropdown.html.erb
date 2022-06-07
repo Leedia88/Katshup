@@ -1,0 +1,44 @@
+            
+<div id="dropdown-navbar-user" class="dropdown">
+  <a
+                class="dropdown-toggle d-flex align-items-center hidden-arrow btn-account-user"
+                href="#"
+                style="color:black"
+                id="navbarDropdownMenuAvatar"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false" >
+    <% if current_user %>
+      <i class="fa-solid fa-user-check" style="margin-right:8px"></i>
+      <%=  current_user.first_name %>
+    <% else %>
+      <i class="fa-solid fa-user-plus"></i>
+    <% end %>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdownMenuAvatar">
+    <li class="dropdown-item user-dropdown-container">
+      <% if current_user %>
+        <ul class="user-dropdown-list ">
+          <li  >
+            <i class="fa-solid fa-user"></i>
+            <%= link_to 'Mon compte', user_path(current_user.id), class: 'css_class', style: 'color:black' %>
+          </li>
+          <li>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <%= link_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
+          </li>
+        </ul>
+      <% else %>
+        <!-- not logged in -->
+        <ul class="user-dropdown-list ">
+          <li  >
+            <%= link_to 'Se connecter', new_user_session_path, class: 'css_class', style: 'color:black' %>
+          </li>
+          <li>
+            <%= link_to 'Sinscrire', new_user_registration_path, class: 'css_class', style: 'color:black' %>
+          </li>
+        </ul>
+      <% end %>
+    </li>
+  </ul>
+</div>
