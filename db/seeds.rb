@@ -13,10 +13,22 @@ Cart.destroy_all
 ProductOrder.destroy_all 
 Order.destroy_all 
 User.destroy_all
-
 Product.destroy_all 
+Category.destroy_all
 
 User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
+### Generate 10 categories
+Category.create(name:'chaton')
+Category.create(name:'joie')
+Category.create(name:'amour')
+Category.create(name:'dodo')
+Category.create(name:'grincheux')
+Category.create(name:'drole')
+Category.create(name:'colere')
+Category.create(name:'triste')
+Category.create(name:'neutre')
+Category.create(name:'autre')
+
 
 ### Generate 10 users
 10.times do
@@ -50,6 +62,7 @@ images = ["http://4.bp.blogspot.com/-XBJp427kEGM/T9xVSnnUFSI/AAAAAAAAAF8/Nvh7FaW
   Product.create(title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph,
     price: rand(1..1000),
+    category: Category.all.sample,
   image_url: images.sample)
 end
 
