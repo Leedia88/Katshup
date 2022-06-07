@@ -27,4 +27,8 @@ class Cart < ApplicationRecord
     self.products.where(title: product.title).count
   end
 
+  def empty_cart
+    CartProduct.where(cart: self).destroy_all
+  end
+
 end
