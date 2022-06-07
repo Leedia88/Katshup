@@ -13,7 +13,10 @@ class Order < ApplicationRecord
       list << Product.find(po.product_id)
     end
     return list
-    
+  end
+
+  def add_to_order(product_list)
+    product_list.each {|product| ProductOrder.create(order: self, product: product)}
   end
 
 

@@ -1,7 +1,7 @@
 
 
 <section class="dark">
-	<div class="container py-4">
+	<div class="container product py-4">
 		<h1 class="h1 text-center" id="pageHeaderTitle"></h1>
 
 		<article class="postcard dark blue">
@@ -18,9 +18,9 @@
 				</div>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt"><p> <span> DESCRIPTION : </span> <%= @product.description%></p></div>
-				<div class="postcard__preview-txt"><p> <span> Prix : </span> <%= @product.price%> €</p></div>
+				<div class="postcard__preview-text"><p> <span> Prix : </span> <%= @product.price%> €</p></div>
 				 <%if current_user%>
-         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
+         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary ", remote: true %>
       <%end%>
 			</div>
 		</article>
