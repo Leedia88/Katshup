@@ -15,4 +15,13 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Confirmation de commande !') 
   end
 
+  def notif_purchase(order)
+    @order = order
+    @admins = User.where(is_admin: true)
+    emails = @admins.collect(&:email).join(",")
+    @product_list = @order.get_products
+    @url  = 'https://katshup.herokuapp.com/' 
+    mail(to: emails, subject: 'Nouvelle commande réalisée sur Katshup!')
+  end
+
 end

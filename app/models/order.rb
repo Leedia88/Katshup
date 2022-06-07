@@ -3,8 +3,10 @@ class Order < ApplicationRecord
   has_many :product_orders
   has_many :products, through: :product_orders
 
+
   def send_confirmation_mail
     UserMailer.confirm_purchase(self).deliver_now
+    UserMailer.notif_purchase(self).deliver_now
   end
 
   def get_products
@@ -18,7 +20,6 @@ class Order < ApplicationRecord
   def add_to_order(product_list)
     product_list.each {|product| ProductOrder.create(order: self, product: product)}
   end
-
 
 
 end

@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   new_order.add_to_order(@products)
   @cart.empty_cart
   new_order.send_confirmation_mail
-  
+
   redirect_to user_order_path(@user.id, new_order.id, amount: @stripe_amount/100)
 
   end
