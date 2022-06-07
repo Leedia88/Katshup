@@ -5,4 +5,5 @@ class ImagesController < ApplicationController
           @product.image.attach(params[:image])
           redirect_to(edit_admin_product_path(@product))
     end
+
 end

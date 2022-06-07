@@ -1,15 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :set_user_and_cart, only: %i[ new create show ]
 
   def new
-    @user = User.find(params[:user_id])
     @cart = @user.cart
     @products = @cart.get_products
     @stripe_amount = (@cart.total_amount*100).to_i
   end
   
 
-  def create   
-  @user = User.find(params[:user_id])
+  def create  
   @cart = @user.cart
   @products = @cart.get_products
   @stripe_amount = (@cart.total_amount*100).to_i
@@ -31,8 +30,8 @@ class OrdersController < ApplicationController
   end
 
   new_order = Order.create(user: @user, total_amount: @stripe_amount/100)
-  @products.each {|product| ProductOrder.create(order: new_order, product: product)}
-  CartProduct.where(cart:@cart).destroy_all
+  new_order.add_to_order(@products)
+  @cart.empty_cart
   new_order.send_confirmation_mail
   
   redirect_to user_order_path(@user.id, new_order.id, amount: @stripe_amount/100)
@@ -40,8 +39,14 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @order = Order.find(params[:id])
   end
+
+  private
+
+    def set_user_and_cart
+      @user = User.find(params[:user_id])
+      @cart = @user.cart
+    end
 
 end

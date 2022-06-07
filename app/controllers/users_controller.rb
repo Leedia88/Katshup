@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def edit 
     puts params
-
   end
 
   def update 

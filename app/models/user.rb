@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_one :cart, dependent: :destroy
   has_many :orders
+  has_one_attached :avatar, dependent: :destroy
 
   def set_cart
     Cart.create!(user: self)
@@ -18,6 +19,4 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
-
-
 end
