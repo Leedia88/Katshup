@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :carts, path: :panier do 
       resources :cartproducts
     end
+    resources :avatars, only: [:create]
     resources :orders , only: [:new, :create, :update, :show]
   end
 
