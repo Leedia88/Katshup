@@ -2,6 +2,6 @@
 
 <div class="container d-flex">
 
-    <%= render partial: 'product', layout: "product_layout", collection: @products  %>
+    <%= render partial: 'product', layout: "product_layout", collection: @products.order(id:'asc')  %>
 
 </div>

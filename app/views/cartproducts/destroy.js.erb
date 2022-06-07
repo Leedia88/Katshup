@@ -1,19 +1,31 @@
-// Modif NAVBAR
-totalCount = document.getElementById("item-count").innerHTML
-totalCount = parseInt(totalCount)
-document.getElementById("item-count").innerHTML = totalCount - 1
 
-//MODIF CART SHOW
+
+
+
 console.log("<%=@delete_scope%>")
 if ("<%=@delete_scope%>" === "all"){
-   document.getElementById("product-<%=product.id%>").remove()
+   // Modif NAVBAR   
+   qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
+   qtyProduct = parseInt(qtyProduct)
+   totalCount = document.getElementById("item-count").innerHTML
+   totalCount = parseInt(totalCount)
+   document.getElementById("item-count").innerHTML = totalCount - qtyProduct
+   //MODIF CART SHOW
+   document.getElementById("product-<%=@product.id%>").remove()
+   
+
 } else {
-qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
-qtyProduct = parseInt(qtyProduct)
-document.getElementById("qty_product-<%=@product.id%>").innerHTML = qtyProduct - 1
-productPrice = parseInt("<%=@product.price%>")
-totalPrice = document.getElementById("cart-total-amount").innerHTML
-totalPrice = parseInt(totalPrice)
-document.getElementById("cart-total-amount").innerHTML = totalPrice - productPrice
+// Modif NAVBAR  
+   totalCount = document.getElementById("item-count").innerHTML
+   totalCount = parseInt(totalCount)
+   document.getElementById("item-count").innerHTML = totalCount - 1
+   //MODIF CART SHOW
+   qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
+   qtyProduct = parseInt(qtyProduct)
+   document.getElementById("qty_product-<%=@product.id%>").innerHTML = qtyProduct - 1
+   productPrice = parseInt("<%=@product.price%>")
+   totalPrice = document.getElementById("cart-total-amount").innerHTML
+   totalPrice = parseInt(totalPrice)
+   document.getElementById("cart-total-amount").innerHTML = totalPrice - productPrice
 }
 //DELETE ALL ITEM LIGN 
