@@ -14,7 +14,10 @@ class CartproductsController < ApplicationController
     def destroy
         @cart_product = CartProduct.find(params[:id])
         @cart_product.destroy 
-        redirect_to root_path
+        respond_to do |format|
+            format.html {redirect_to root_path}
+            format.js
+        end 
     end
 
 end
