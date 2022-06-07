@@ -12,10 +12,10 @@
                   Katshup
               </a>
           <div class="d-flex align-items-center">
-              <li style="margin-right:20px" >
+              <li style="margin-right:20px">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <%= link_to 'Cart', user_cart_path(current_user.id, current_user.cart.id), style: 'color:black' %>
-                  <span> <%=current_user.cart.products.count%> </span>
+                  <span id="item-count"> <%=current_user.cart.products.count%> </span>
               </li>
             <!-- Icon -->
             <div class="dropdown">

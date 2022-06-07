@@ -7,7 +7,7 @@ class CartproductsController < ApplicationController
         puts "j'ai ajouté un cartproduct"
         respond_to do |format|
             format.html {redirect_to root_path}
-            format.js
+            format.js {}
         end
     end
 
