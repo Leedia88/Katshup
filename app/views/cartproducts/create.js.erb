@@ -4,12 +4,25 @@ var totalCount = parseInt(totalCount)
 document.getElementById("item-count").innerHTML = totalCount + 1
 
 // MODIF CART SHOW
-
-qtyProduct = document.getElementById("qty_product-<%=@product.id%>").innerHTML
+qtyProduct = document.getElementById("qty_product-<%=@product.id%>")
+if (qtyProduct){
+qtyProduct = qtyProduct.innerHTML
 qtyProduct = parseInt(qtyProduct)
 document.getElementById("qty_product-<%=@product.id%>").innerHTML = qtyProduct + 1
 productPrice = parseInt("<%=@product.price%>")
 totalPrice = document.getElementById("cart-total-amount").innerHTML
 totalPrice = parseInt(totalPrice)
 document.getElementById("cart-total-amount").innerHTML = totalPrice + productPrice
+}
+//MODIF ADD PRODUCT CART DROP DOWN
+selected_product = document.getElementById("dropdown-product-<%=@product.id%>")
+if (selected_product){
+   qtyProduct = document.getElementById("dropdown-quantity-<%=@product.id%>").innerHTML
+   console.log(qtyProduct)
+   qtyProduct = parseInt(qtyProduct)
+   
+   document.getElementById("dropdown-quantity-<%=@product.id%>").innerHTML = qtyProduct + 1
+} else {
+   document.getElementById("product-add").insertAdjacentHTML("beforeend","<%= j render 'add_product', product: @product %>")
+}
 

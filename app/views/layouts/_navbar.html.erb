@@ -12,7 +12,7 @@
                   Katshup
               </a>
           <div class="d-flex align-items-center">
-            <div class="dropdown">
+            <div class="dropdown cart-drop">
               <li style="margin-right:20px">
               <div class="dropdown-toggle d-flex align-items-center hidden-arrow btn-account-user"
                 href="#"
@@ -30,17 +30,21 @@
                 aria-labelledby="navbarDropdownMenuAvatar">
                 <li style="color:black" class="dropdown-item">
                   <% if current_user %>
-                    <ul style="padding-left:0px !important">
-                    <% current_user.cart.products.each do |product| %>
-                      <li> 
-                        <%=product.title%> <%=product.price%> €
+                    <ul style="padding-left:0px !important" class="ul-down" id="product-add">
+                    <% current_user.cart.products.uniq.each do |product| %>
+                      <li id="dropdown-product-<%=product.id%>"> 
+                      <div class="product-quantity"> Quantité : <span id="dropdown-quantity-<%=product.id%>"><%=current_user.cart.nb_product_in_cart(product)%></span></div>
+                      <div class="product-info">
+                        <div>  <%=product.title%></div>
+                        <div> <strong> <%=product.price%> € </strong></div>
+                      </div>
+                      <div><img src="https://st.depositphotos.com/1000122/2651/i/600/depositphotos_26517721-stock-photo-beautiful-cute-little-kitten-meowing.jpg" ></div>
+                      
                       </li>
                      <%end%> 
-                      <li>
-                        <%= link_to 'Voir mon panier', user_cart_path(current_user.id, current_user.cart.id), style: 'color:black' %>
-                      </li>
-                
-                    </ul>
+                     </ul>
+                        <%= link_to 'Voir mon panier', user_cart_path(current_user.id, current_user.cart.id), style: 'color:white', class:"btn btn-primary" %>
+                    
 
                   <% end %>
                 </li>
