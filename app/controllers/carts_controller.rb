@@ -1,21 +1,23 @@
 class CartsController < ApplicationController
-
-    def index
-    end
-    
-    def create
-    end
+    before_action :authenticate_user, only: [:edit, :show, :update, :new]
 
     def show
         @cart = current_user.cart
-         @products = @cart.get_products
+        @products = @cart.products
     end
 
-    def edit 
+    def destroy 
+        @cart = current_user.cart
+        CartProduct.where(cart:@cart).destroy_all
     end
 
-    def updated 
-    end
+    private
 
+    def authenticate_user
+      unless current_user
+        flash[:danger] = "Please log in."
+        redirect_to new_user_registration_path 
+      end
+    end
 
 end

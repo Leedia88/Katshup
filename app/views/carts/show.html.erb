@@ -1,4 +1,29 @@
-<%# <%= render 'carts/show' locals: {products : @products}%>
+<div class="card">
+  <div class="row">
+    
+    <div class="col-md-8 cart">
+      <div class="row title">
+        <div class="col"><h4><b>Votre panier</b></h4></div>
+      </div>    
+    
+      <%= render partial: 'show_product_list', locals: {products: @products, cart: @cart}%>
 
+      <div class="row bottom-cart ">
+        <%= render partial: 'show_bottom', locals: {cart: @cart}%>
+      </div>
 
-<%= render 'show' %>
+     </div>
+
+  <div class="col-md-4 summary">
+    <div>
+      <h5><b>Détails</b></h5>
+    </div>
+    
+    <hr>
+
+    <div class="row show-detail">
+      <%= render partial: 'show_detail', locals: {products: @products, cart: @cart}%>
+    </div>
+
+  </div>
+</div>

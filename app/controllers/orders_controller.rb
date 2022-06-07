@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
   new_order = Order.create(user: @user, total_amount: @stripe_amount/100)
   @products.each {|product| ProductOrder.create(order: new_order, product: product)}
   CartProduct.where(cart:@cart).destroy_all
+  new_order.send_confirmation_mail
   
   redirect_to user_order_path(@user.id, new_order.id, amount: @stripe_amount/100)
 

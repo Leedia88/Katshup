@@ -15,7 +15,10 @@ class CartproductsController < ApplicationController
         @cart_product = CartProduct.find(params[:id])
         @cart = @cart_product.cart
         @cart_product.destroy 
-        redirect_to user_cart_path(@cart)
+        respond_to do |format|
+            format.html {redirect_to root_path}
+            format.js
+        end 
     end
 
 end
