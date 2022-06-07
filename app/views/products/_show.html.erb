@@ -1,20 +1,26 @@
-<div class="d-flex">   
-   <div class="container text-center">
-      <%if @product.image.attached?%>
-         <%= image_tag @product.image, alt: 'image', style: "width:500px;"%>
-      <%else%>
-         <p>=== Il n'y a pas encore d'image lié à ce produit ===</p>
-      <%end%>
-      <%# <img src="https://st.depositphotos.com/1000122/2651/i/600/depositphotos_26517721-stock-photo-beautiful-cute-little-kitten-meowing.jpg"
-      style="width:70%"> %>
-   </div>
 
-   <div>
-      <p> <span> TITRE : </span><%= @product.title%></p>
-      <p> <span> DESCRIPTION : </span> <%= @product.description%></p>
-      <p> <span> PRICE : </span><%= @product.price%></p>
-      <%if current_user%>
-         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
+
+<section class="dark">
+	<div class="container product py-4">
+		<h1 class="h1 text-center" id="pageHeaderTitle"></h1>
+
+		<article class="postcard dark blue">
+		 	  <%if @product.image.attached?%>
+          <%= image_tag @product.image, alt: 'image', style: "width:500px;"%>
+       <%else%>
+         <img class="postcard__img"src="https://st.depositphotos.com/1000122/2651/i/600/depositphotos_26517721-stock-photo-beautiful-cute-little-kitten-meowing.jpg"
+      style="width:70%"> 
+       <%end%>
+			<div class="postcard__text">
+				<h1 class="postcard__title"> <span> TITRE : </span><%= @product.title%></h1>
+				<div class="postcard__subtitle small">
+					
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt"><p> <span> DESCRIPTION : </span> <%= @product.description%></p></div>
+				<div class="postcard__preview-text"><p> <span> Prix : </span> <%= @product.price%> €</p></div>
+				 <%if current_user%>
+         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary ", remote: true %>
       <%end%>
-   </div>
-</div>
+			</div>
+		</article>

@@ -1,7 +1,7 @@
-<h1>Liste des photos disponibles</h1>
 
-<div class="container d-flex">
-
-    <%= render partial: 'product', layout: "product_layout", collection: @products.order(id:'asc')  %>
-
+<div>
+    <h1 class="text-center font-weight-bold my-4">Achetez des photos de chatons !!</h1>
+    <div class="row justify-content-center">
+        <%= render partial: 'product', layout: "product_layout", collection: @products.order(id:'asc')  %>
+    </div>
 </div>
