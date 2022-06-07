@@ -4,7 +4,6 @@ class CartproductsController < ApplicationController
     def create
         @product = Product.find(params[:product])
         CartProduct.create!(product: @product, cart: current_user.cart)
-        puts "j'ai ajouté un cartproduct"
         respond_to do |format|
             format.html {redirect_to root_path}
             format.js {}
@@ -13,8 +12,12 @@ class CartproductsController < ApplicationController
 
     def destroy
         @cart_product = CartProduct.find(params[:id])
+        @cart = @cart_product.cart
         @cart_product.destroy 
-        redirect_to root_path
+        respond_to do |format|
+            format.html {redirect_to root_path}
+            format.js
+        end 
     end
 
 end

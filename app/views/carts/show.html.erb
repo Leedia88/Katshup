@@ -6,7 +6,7 @@
         <div class="col"><h4><b>Votre panier</b></h4></div>
       </div>    
     
-      <%= render partial: 'show_product_list', locals: {products: @products}%>
+      <%= render partial: 'show_product_list', locals: {products: @products, cart: @cart}%>
 
       <div class="row bottom-cart ">
         <%= render partial: 'show_bottom', locals: {cart: @cart}%>

@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   resources :products , only: [:index, :show, :edit] do
     resources :images, only: [:create]
   end
+
+  namespace :admin do
+    resources :products
+  end
+  
 end

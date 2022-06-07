@@ -26,6 +26,8 @@ Product.destroy_all
     password: 'password')
 end
 
+User.first.update(is_admin: true)
+
 ### Generate 20 products
 20.times do
   Product.create(title: Faker::Creature::Cat.breed,
