@@ -4,9 +4,16 @@
     </div>
 
     <div class="orders-list">
+    <h1> Liste de tes commandes </h1>
+
+    <%if @orders.length == 0%>
+        <h4 class="mt-5"> Tu n'as pas encore de commandes.</h4>
+        <%= link_to 'Voir mon panier', user_cart_path(current_user.id, current_user.cart.id), style: 'color:white', class:"btn btn-primary mt-1" %>
+        <%= link_to "Voir toute les photos", root_path, style: 'color:white', class:"btn btn-primary mt-1" %>
+    <%else%>
       <%@orders.each do |order|%>
           <%= render partial: 'order', locals: {order: order} %>
       <%end%>
-      
+    <%end%>
     </div>
 </div>
