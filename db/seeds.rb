@@ -15,6 +15,7 @@ Order.destroy_all
 User.destroy_all
 Product.destroy_all 
 Category.destroy_all
+Evaluation.destroy_all
 
 User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
 ### Generate 10 categories
@@ -63,7 +64,7 @@ images = ["http://4.bp.blogspot.com/-XBJp427kEGM/T9xVSnnUFSI/AAAAAAAAAF8/Nvh7FaW
     description: Faker::Lorem.paragraph,
     price: rand(1..1000),
     category: Category.all.sample,
-  image_url: images.sample)
+    image_url: images.sample)
 end
 
 ### Add 1-5 products to each cart
