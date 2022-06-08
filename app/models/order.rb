@@ -21,5 +21,9 @@ class Order < ApplicationRecord
     product_list.each {|product| ProductOrder.create(order: self, product: product)}
   end
 
+  def nb_product_in_order(product)
+    self.products.where(title: product.title).count
+  end
+
 
 end

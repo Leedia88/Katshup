@@ -10,16 +10,22 @@
           aria-controls="collapse<%=order.id%>"
         >
         <div class="title-content">
-          <h2>Commande n°<%=order.id%></h2>
+          <h2>
+          Commande n°<%=order.id%> (<%= order.total_amount%>€)
+          <% if current_user && current_user.is_admin && current_page?(admin_orders_path)%>
+               réalisée par <%=order.user.first_name%> <%=order.user.last_name%>
+            <%end%>
+             le <%=order.created_at.strftime("%d/%m/%Y")%>
+          </h2>
           <h3>View details</h3>
         </div>
         </button>
       </h2>
       <div id="collapse<%=order.id%>" class="accordion-collapse collapse order-content" aria-labelledby="heading<%=order.id%>" data-mdb-parent="#accordionExample">
           <h5> <%=order.products.count%> produits </h5>
-          <%order.products.each do |product|%>
+          <%order.products.order(id:'asc').uniq.each  do |product|%>
             <div class="accordion-body">
-                <li> <%=product.title%> à <%=product.price%> €</li>
+                <li> <%=order.nb_product_in_order(product)%> x <%=product.title%> à <%=product.price%> €</li>
             </div>
           <%end%>
       </div>
