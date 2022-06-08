@@ -1,5 +1,4 @@
 .cart-drop{
-   cursor: pointer;
    padding: 10px 15px;
    border-radius: 20px;
    margin-right: 10px;
@@ -11,6 +10,7 @@
    
    .btn-account-user{
       position: relative;
+      cursor: pointer;
       .count-cart{
          position: absolute;
          top: -20px;
@@ -41,6 +41,7 @@
       margin-bottom: 5px;
       align-items: center;
       width: 100%;
+   
       
          .product-info{
             display: flex;
@@ -72,8 +73,8 @@
       
    
          &:hover{
-            background-color: rgb(241, 241, 241);
             cursor: pointer;
+            background-color: rgb(241, 241, 241);
          }
       }
    }

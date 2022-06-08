@@ -20,7 +20,7 @@
 				<div class="postcard__preview-txt"><p> <span> DESCRIPTION : </span> <%= @product.description%></p></div>
 				<div class="postcard__preview-text"><p> <span> Prix : </span> <%= @product.price%> €</p></div>
 				 <%if current_user%>
-         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-primary ", remote: true %>
+         <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-dark", remote: true %>
       <%end%>
 			</div>
 		</article>

@@ -1,8 +1,17 @@
 class Product < ApplicationRecord
     has_one :category
+    has_many :evaluations
     has_many :product_orders
     has_many :orders, through: :product_orders
     has_many :cart_products
     has_many :carts, through: :cart_products
     has_one_attached :image, dependent: :destroy
+
+    def product_grade 
+      grade = 0
+        self.evaluations.each do |evaluation|
+          grade += evaluation.grade 
+        end
+      grade == 0 ? (return grade) : (return grade/self.evaluations.size)
+    end
 end
