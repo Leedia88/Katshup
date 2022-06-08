@@ -1,0 +1,32 @@
+.card-signin{
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+   .sign-in{
+     width: 100%;
+   }
+
+   input[type=text]{
+      border-radius: 5px;
+   }
+   input[type=email]{
+      border-radius: 5px;
+   }
+   input[type=password]{
+      border-radius: 5px;
+   }
+
+}
+
+input[type=submit]{
+   cursor: pointer;
+   border-radius: 5px;
+}
+
+input[type=submit]:hover{
+   background: rgb(242, 240, 240);
+}
+
+
