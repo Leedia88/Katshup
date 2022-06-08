@@ -25,7 +25,7 @@
           </li>
           <li>
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <%= link_to 'logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
+            <%= link_to 'Logout', destroy_user_session_path, class: 'css_class', style: 'color:black', method: :delete %>
           </li>
         </ul>
       <% else %>
@@ -35,7 +35,7 @@
             <%= link_to 'Se connecter', new_user_session_path, class: 'css_class', style: 'color:black' %>
           </li>
           <li>
-            <%= link_to 'Sinscrire', new_user_registration_path, class: 'css_class', style: 'color:black' %>
+            <%= link_to 'S\'inscrire', new_user_registration_path, class: 'css_class', style: 'color:black' %>
           </li>
         </ul>
       <% end %>
