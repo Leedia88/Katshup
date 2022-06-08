@@ -1,3 +1,4 @@
+<div class="cardy-container <%= product.category.name%>" >
 <div class="cardy">
     <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
         <%if product.image.attached?%>
@@ -35,4 +36,5 @@
           <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
       </div>
     </div>
+</div>
 </div>
