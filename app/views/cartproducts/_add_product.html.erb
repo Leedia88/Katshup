@@ -1,13 +1,17 @@
 <li id="dropdown-product-<%=product.id%>">
-  <div class="product-quantity"> Quantité : <span id="quantity-product-<%=product.id%>"><%=current_user.cart.nb_product_in_cart(product)%></span></div>
-  <div class="product-info">
-    <div>  <%=product.title%></div>
-    <div> <strong> <%=product.price%> € </strong></div>
-  </div>
-  <div>
-    <%if product.image.attached?%>
-      <%= image_tag product.image, alt: 'image chat' %>
-    <%else%>
-      <img src="<%=product.image_url%>" ></div>
-  <%end%>
+    <div class="d-flex align-items-center">
+        <div class="mr-3">
+          <%if product.image.attached?%>
+            <%= image_tag product.image, alt: 'image chat' %>
+          <%else%>
+            <img src="<%=product.image_url%>" >
+          <%end%>
+        </div>
+        <div class="product-info">
+          <div>  <%=product.title%></div>
+          <div> <strong> <%=product.price%> € </strong></div>
+        </div>
+    </div>
+    <div class="product-quantity"> Qty : <span id="dropdown-quantity-<%=product.id%>"><%=current_user.cart.nb_product_in_cart(product)%></span></div>
+
 </li>
