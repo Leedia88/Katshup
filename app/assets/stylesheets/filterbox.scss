@@ -1,0 +1,60 @@
+.wrapper-container{
+   display: flex;
+   overflow-x: scroll;
+   margin-left: 7%;
+   margin-top: 80px;
+}
+
+.checkbox-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(132, 156, 96);
+   width: fit-content;
+   margin:0px 10px 5px 0px;
+   padding: 8px 12px;
+   border-radius: 20px;
+   width: 90px;
+   height: 40px;
+   position: relative;
+
+   &:hover{
+      background-color: rgb(163, 181, 137);
+   }
+
+   
+   input[type="checkbox"]:not(:checked), input[type="checkbox"]:checked{
+      cursor: pointer;
+      position: absolute;
+      margin: 0;
+      z-index: 7;
+      opacity: 0;
+      width: fit-content;
+      transform: scaleX(6.3) scaleY(3);
+   }
+   
+   .ghost-check{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      border-radius: 20px;
+   }
+
+   input[type="checkbox"]:checked ~ .ghost-check{
+      background-color: rgb(18, 136, 54);
+   }
+
+
+   label{
+      position: absolute;
+      z-index: 3;
+      color: white;
+   }
+}
+
+.active-checkbox{
+   background-color: rgb(211, 78, 187);
+}

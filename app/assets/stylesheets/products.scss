@@ -1,14 +1,31 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container-cards{
+      margin: 0px 5%;
+      
+   .container-card{
+      display: flex;
+      justify-content: flex-start;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 600px) {
+         margin-top: 30px;
+         justify-content: center;
+     }
+
+   }
+}
+
 
 .cardy-container{
    margin: 20px;
+   transition: all 0.3s ease;
    &:hover{
       transform: scale(1.05);
       transition: all 0.3s ease;
    }
-   transition: all 0.3s ease;
 }
 
 .cardy {

@@ -1,9 +1,11 @@
 
-<div>
+<div >
     <h1 class="text-center font-weight-bold my-4">Achetez des photos de chatons !!</h1>
         <%= render partial: 'categories/filterbox'%>
-    <div class="row justify-content-center">
-        <%= render partial: 'product', layout: "product_layout", collection: @products.order(id:'asc')  %>
+    <div class="container-cards">
+        <div class="container-card">
+            <%= render partial: 'product', layout: "product_layout", collection: @products.order(id:'asc')  %>
+        </div>
     </div>
 </div>
 <%= javascript_include_tag 'example' %>
