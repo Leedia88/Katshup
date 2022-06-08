@@ -9,7 +9,7 @@
           <%= image_tag @product.image, alt: 'image chat', style: "max-width:500px;", class:"postcard__img" %>
        <%else%>
          <img class="postcard__img" src="<%=@product.image_url%>"
-      style="width:70%" alt="image chat"> 
+       alt="image chat"> 
        <%end%>
 			<div class="postcard__text">
 				<h1 class="postcard__title"> <span> TITRE : </span><%= @product.title%></h1>

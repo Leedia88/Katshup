@@ -26,11 +26,7 @@
                   <div> <strong> <%=product.price%> € </strong></div>
                 </div>
                 <div>
-                  <%if product.image.attached?%>
-                    <%= image_tag product.image, alt: 'image chat', style: "max-width:500px;", class:"postcard__img" %>
-                <%else%>
-                    <img class="postcard__img" src="<%=product.image_url%>" style="width:70%" alt="image chat"> 
-                <%end%>
+                  <img src="<%=product.image_url%>" >
                 </div>
               </li>
             <%end%>
