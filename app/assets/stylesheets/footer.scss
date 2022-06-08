@@ -1,0 +1,26 @@
+footer {
+   padding-top: 20px;
+   .first-div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      section{
+         a{
+            background-color: white;
+            border-radius: 50%;
+            padding: 12px;
+            border: 1px solid rgb(110, 110, 110);
+            color: black !important ;
+   
+            &:hover{
+               background-color: black;
+               border: 1px solid transparent;
+               transition: all ease-in-out 0.1s;
+               color: white !important;
+            }
+         }
+      }
+   }
+}        
