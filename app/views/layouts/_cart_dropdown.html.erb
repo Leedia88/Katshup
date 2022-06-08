@@ -25,13 +25,13 @@
                   <div>  <%=product.title%></div>
                   <div> <strong> <%=product.price%> € </strong></div>
                 </div>
-                <div>
-                  <%if @product.image.attached?%>
-                      <%= image_tag @product.image, alt: 'image chat' %>
-                  <%else%>
-                      <img src="<%=product.image_url%>" ></div>
-                  <%end%>
-                </div>
+                  <div>
+                    <%if product.image.attached?%>
+                      <%= image_tag product.image, alt: 'image chat' %>
+                    <%else%>
+                      <img src="<%=product.image_url%>" >
+                    <%end%>
+                  </div>
               </li>
             <%end%>
           </ul>
