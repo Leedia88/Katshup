@@ -31,7 +31,7 @@
       <p class="text-dark product-price"><%= product.price %> €</p>
       <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
           <%if current_user%>
-            <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-primary mx-2", remote: true %>
+            <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: product.id), method: :post,  :class => "btn btn-outline-dark mx-2", remote: true %>
           <%end%>
           <%= link_to "Voir plus", product_path(product), :class => "btn btn-outline-info mx-2" %>
       </div>
