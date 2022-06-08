@@ -83,4 +83,9 @@ Order.all.each do |order|
   rand(1..5).times do
     ProductOrder.create(order:order,product: Product.all.sample)
   end
+  total_amount = 0
+  order.products.each do |product|
+    total_amount += product.price
+  end
+  order.update(total_amount: total_amount)
 end
