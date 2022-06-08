@@ -12,7 +12,9 @@
             </a>
           <div class="d-flex align-items-center">
             <!-- icons -->
-            <%= render partial: 'layouts/cart_dropdown'%>
+            <% if current_user%>
+              <%= render partial: 'layouts/cart_dropdown'%>
+            <%end%>
             <%= render partial: 'layouts/user_dropdown'%>
             <% if current_user && current_user.is_admin %>
               <%= render partial: 'layouts/admin_dropdown'%>
