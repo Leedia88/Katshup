@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    has_one :category
+    belongs_to :category
     has_many :evaluations
     has_many :product_orders
     has_many :orders, through: :product_orders

@@ -9,10 +9,16 @@ class Admin::ProductsController < ApplicationController
 
     def new
         @product = Product.new
+        @categories = Category.all
     end
 
     def create
-        @product = Product.new(product_params)
+        
+        puts product_params
+        @category = params[:cats_id].first
+        puts @category
+        @product = Product.create!(category_id: @category)
+        @product.update(product_params)
         if @product.save
             redirect_to admin_product_path(@product)
         else
@@ -22,6 +28,7 @@ class Admin::ProductsController < ApplicationController
     end
 
     def edit
+        @categories = Category.all
     end
 
     def show

@@ -25,6 +25,11 @@
                 <%= f.text_field :description, autofocus: true %>
               </div>
             </div>
+            <%= label_tag :categorie%> <br> 
+              <%@categories.each do |cat|%>
+                <%= label_tag cat.id, "#{cat.name}"%>
+                <%= check_box_tag 'cats_id[]', cat.id%>
+              <%end%>
             <div class="form-outline mb-4">
               <div class="field">
                 <%= f.label :price %> €<br />
@@ -33,7 +38,7 @@
             </div>
             <div class="pt-1 mb-4">
               <div class="actions">
-                <%= f.submit("Continuer", {:class => "card-link btn btn-outline-info"}) %><br>
+                <%= f.submit("Continuer", {:class => ""}) %><br>
                 <%=link_to "Annuler", admin_products_path, :class => "card-link btn btn-outline-info"%>
               </div>
             </div>

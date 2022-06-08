@@ -16,9 +16,15 @@
                 <%= f.text_field :title, autofocus: true %>
               </div>
             </div>
+            <%= label_tag :categorie%> <br> 
+
+              <%@categories.each do |cat|%>
+                <%= label_tag cat.id, "#{cat.name}"%>
+                <%= check_box_tag 'cats_id[]', cat.id%>
+              <%end%>
             <div class="form-outline mb-4">
               <div class="field">
-                <%= f.label :descritpion %><br />
+                <%= f.label :description %><br />
                 <%= f.text_field :description, autofocus: true %>
               </div>
             </div>
