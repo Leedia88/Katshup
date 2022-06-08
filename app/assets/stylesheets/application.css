@@ -21,9 +21,18 @@
  }
 
  .btn {
-   height: 35px;
+   border-radius: 5px;
+   height: 45px;
    max-width : 200px;
+   font-size: 1rem;
+   color: #fff;
+   transition: all 150ms ease-in-out;
+   
  }
+
+ .btn:hover {
+  box-shadow: 0 0 5px 0 black inset, 0 0 5px 2px black;
+}
 
  .active-checkbox{
   background-color: rgb(211, 78, 187);
