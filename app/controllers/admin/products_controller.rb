@@ -13,12 +13,11 @@ class Admin::ProductsController < ApplicationController
     end
 
     def create
-        puts product_params
-        @category = params[:cats_id].first
-        puts @category
-        @product = Product.create!(category_id: @category)
-        @product.update(product_params)
+        @product = Product.new(product_params)
         if @product.save
+            params[:cats_id].each do |id|
+                ProductCategory.create(product: @product, category_id: id)
+            end
             redirect_to admin_product_path(@product)
         else
             flash[:danger] = "Error while saving."
@@ -36,12 +35,12 @@ class Admin::ProductsController < ApplicationController
     def update
         if params[:available]
             @product.update(available: params[:available])
+            redirect_to admin_products_path
         else
             @product.update(product_params)
             flash[:success] = "Product was successfully updated."
+            redirect_to admin_product_path
         end
-        flash[:success] = "Product was successfully updated."
-        redirect_to admin_product_path
     end
 
     def destroy
