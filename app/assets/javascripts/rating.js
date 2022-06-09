@@ -1,6 +1,6 @@
-const starEditPage = document.querySelector("[data-startEditPage]")
+var starEditPage = document.querySelector("[data-startEditPage]")
 
-const grade = () => {
+var grade = () => {
   let stars = document.querySelector(".star-grade").childNodes;
 
   stars.forEach(button => {button.addEventListener('mouseover', () => {
