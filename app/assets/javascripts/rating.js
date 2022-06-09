@@ -8,12 +8,12 @@ const grade = () => {
     button.firstElementChild.classList.remove('fa-regular');
     let e = button.previousElementSibling;
     let j = button.nextElementSibling;
-    while (e != null){
+    while (e != null) {
       e.firstElementChild?.classList.add('fa-solid');
       e.firstElementChild?.classList.remove('fa-regular');
-      e = e.previousElementSibling
+      e = e.previousElementSibling;
     }
-    while (j != null){
+    while (j != null) {
       j.firstElementChild?.classList.add('fa-regular');
       j.firstElementChild?.classList.remove('fa-solid');
       j = j.nextElementSibling;
