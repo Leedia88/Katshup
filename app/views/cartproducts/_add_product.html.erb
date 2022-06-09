@@ -8,7 +8,7 @@
           <%end%>
         </div>
         <div class="product-info">
-          <div>  <%=product.title%></div>
+          <div>  <%=link_to product.title, product_path(product)%></div>
           <div> <strong> <%=product.price%> € </strong></div>
         </div>
     </div>

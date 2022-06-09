@@ -23,11 +23,13 @@
               <li id="dropdown-product-<%=product.id%>">
                   <div class="d-flex align-items-center">
                       <div class="mr-3">
-                        <%if product.image.attached?%>
-                          <%= image_tag product.image, alt: 'image chat' %>
+                      <%= link_to product_path(product) do%>
+                        <%if product.image.attached?%>>
+                            <%= image_tag product.image, alt: 'image chat' %>
                         <%else%>
                           <img src="<%=product.image_url%>" >
                         <%end%>
+                      <%end%>
                       </div>
                       <div class="product-info">
                         <div>  <%=product.title%></div>
