@@ -19,7 +19,7 @@
 				 <%if current_user%>
          <%= link_to "Ajouter au panier", user_cart_cartproducts_path(current_user, current_user.cart, product: @product.id), method: :post,  :class => "btn btn-dark", remote: true %>
       <%end%>
-			<%if @product.purchased_by(current_user)%>
+			<%if current_user && @product.purchased_by(current_user)%>
 				<%= render 'rating_prod_show'%>
 			<%end%>
 			</div>
