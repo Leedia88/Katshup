@@ -18,27 +18,26 @@
       <li style="color:black" class="dropdown-item user-dropdown-container d-flex flex-column align-items-center justify-content-center ">
         <% if current_user %>
           <ul style="padding-left:0px !important" class="ul-down user-dropdown-list" id="product-add">
-
             <% current_user.cart.products.uniq.each do |product| %>
-              <li id="dropdown-product-<%=product.id%>">
-                <div class="d-flex align-items-center">
-                  <div class="mr-3">
-                    <%= link_to product_path(product) do%>
-                      <%if product.image.attached?%>>
+               <%= link_to product_path(product), :style =>"width:100%" do%> 
+                <li id="dropdown-product-<%=product.id%>">
+                  <div class="d-flex align-items-center">
+                    <div id="pdt-img-<%=product.id%>" class="mr-3">
+                      <%if product.image.attached?%>
                         <%= image_tag product.image, alt: 'image chat' %>
                       <%else%>
                         <img src="<%=product.image_url%>" >
                       <%end%>
-                    <%end%>
+                    </div>
+                    <div class="product-info">
+                      <div>  <%=product.title%></div>
+                      <div> <strong> <%=product.price%> € </strong></div>
+                    </div>
                   </div>
-                  <div class="product-info">
-                    <div>  <%=product.title%></div>
-                    <div> <strong> <%=product.price%> € </strong></div>
-                  </div>
-                </div>
-                <div class="product-quantity"> Qty : <span id="dropdown-quantity-<%=product.id%>"><%=current_user.cart.nb_product_in_cart(product)%></span></div>
-              </li>
-            <%end%>
+                  <div class="product-quantity"> Qty : <span id="dropdown-quantity-<%=product.id%>"><%=current_user.cart.nb_product_in_cart(product)%></span></div>
+                </li>
+              <%end%> 
+               <%end%>
           </ul>
           <%= link_to 'Voir mon panier', user_cart_path(current_user.id, current_user.cart.id), style: 'color:white', class:"btn btn-dark mt-2" %>
         <% end %>
