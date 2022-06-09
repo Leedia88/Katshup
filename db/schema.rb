@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_08_143850) do
+ActiveRecord::Schema.define(version: 2022_06_09_083120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2022_06_08_143850) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_product_categories_on_category_id"
+    t.index ["product_id"], name: "index_product_categories_on_product_id"
+  end
+
   create_table "product_orders", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "product_id"
@@ -93,9 +102,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_143850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
-    t.bigint "category_id"
     t.boolean "available", default: true
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,7 +127,8 @@ ActiveRecord::Schema.define(version: 2022_06_08_143850) do
   add_foreign_key "evaluations", "products"
   add_foreign_key "evaluations", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "product_categories", "categories"
+  add_foreign_key "product_categories", "products"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"
-  add_foreign_key "products", "categories"
 end

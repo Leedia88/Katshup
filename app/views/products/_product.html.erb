@@ -1,4 +1,4 @@
-<div class="cardy-container <%= product.category.name%>" >
+<div class="cardy-container <%= product.categories_list%>" >
 <div class="cardy">
     <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
         <%if product.image.attached?%>
@@ -27,7 +27,9 @@
     <hr class="my-0" />
     <hr class="my-0" />
     <div>
-      <span class="badge badge-pill badge-secondary badge-<%=product.category.name%>"><%= product.category.name %></span>
+      <%product.categories.each do |category|%>
+        <span class="badge badge-pill badge-secondary badge-<%=category.name%>"><%= category.name %></span>
+      <%end%>
       <p class="text-dark product-price"><%= product.price %> €</p>
       <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
           <%if current_user%>

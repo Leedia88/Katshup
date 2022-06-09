@@ -17,6 +17,7 @@ User.destroy_all
 Product.destroy_all 
 Category.destroy_all
 Evaluation.destroy_all
+ProductCategory.destroy_all
 
 User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
 ### Generate 10 categories
@@ -61,11 +62,14 @@ images = ["http://4.bp.blogspot.com/-XBJp427kEGM/T9xVSnnUFSI/AAAAAAAAAF8/Nvh7FaW
 "https://a-z-animals.com/media/2021/04/Smallest-Cats_-Oncilla-1024x535.jpg"
 ]
 20.times do
-  Product.create(title: Faker::Creature::Cat.breed,
+  p = Product.create(title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph,
     price: rand(1..1000),
-    category: Category.all.sample,
     image_url: images.sample)
+    #Generate for each product 1 or 2 categories
+  rand(1..2).times do
+    ProductCategory.create(category: Category.all.sample, product: p)
+  end
 end
 
 ### Add 1-5 products to each cart
