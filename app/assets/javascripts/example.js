@@ -1,40 +1,20 @@
 var checkboxes = document.querySelectorAll(".category-checkboxes");
-var cards = document.querySelectorAll(".cardy-container");
-
-function otherBoxesUnchecked(checkbox) {
-	var answer = true;
-	checkboxes.forEach((box) => {
-		if (box.checked && box != checkbox) {
-			answer = false;
-		}
-	});
-	return answer;
-}
+var cards = document.querySelectorAll(".cardy-container");;
 
 checkboxes.forEach((checkbox) => {
-	checkbox.addEventListener("change", (event) => {
-		var catCheckboxes = document.querySelectorAll(
-			`.${event.currentTarget.getAttribute("id")}`
-		);
-		if (event.currentTarget.checked) {
-			catCheckboxes.forEach((card) => {
-				card.classList.toggle("collapse");
+	checkbox.addEventListener("change", () => {
+		cards.forEach((card) => {
+			card.style.display = "none";
+			var stayHidden = true;
+			var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+			checkedBoxes.forEach(function(elem) {
+
+				if(card.classList.contains(elem.id)){
+					stayHidden = false;
+				};
 			});
-			if (otherBoxesUnchecked(event.currentTarget)) {
-				cards.forEach((card) => {
-					card.classList.toggle("collapse");
-				});
-			}
-		} else {
-			if (otherBoxesUnchecked(event.currentTarget)) {
-				cards.forEach((card) => {
-					card.classList.remove("collapse");
-				});
-			} else {
-				catCheckboxes.forEach((card) => {
-					card.classList.add("collapse");
-				});
-			}
-		}
+			if(!stayHidden) {card.style.display = "";}
+		});
 	});
 });
+
