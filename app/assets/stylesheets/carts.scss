@@ -175,3 +175,22 @@ a:hover{
       margin-left:0px !important;
    }
 }
+
+.order-btns{
+   position: relative;
+
+   .stripe-btn{
+      position: absolute;
+      left: 3px;
+
+      .stripe-button-el{
+         opacity: 0;
+         span{
+            width: 190px;
+         }
+      }
+
+   }
+
+}
+
