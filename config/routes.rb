@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :products
+    resources :products, :except => [ :destroy]
     resources :orders
   end
   

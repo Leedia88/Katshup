@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_143850) do
     t.datetime "updated_at", null: false
     t.string "image_url"
     t.bigint "category_id"
+    t.boolean "available", default: true
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
