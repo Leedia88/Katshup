@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'evaluations/create'
+  get 'evaluations/update'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :products , only: [:index, :show, :edit] do
     resources :images, only: [:create]
+    resources :evaluations, only: [:create]
   end
 
   namespace :admin do

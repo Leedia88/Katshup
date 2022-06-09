@@ -8,6 +8,7 @@
 
 require 'faker'
 
+Evaluation.destroy_all
 CartProduct.destroy_all 
 Cart.destroy_all 
 ProductOrder.destroy_all 

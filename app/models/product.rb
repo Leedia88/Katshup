@@ -14,4 +14,13 @@ class Product < ApplicationRecord
         end
       grade == 0 ? (return grade) : (return grade/self.evaluations.size)
     end
+
+    def purchased_by(user)
+      user.orders.each do |order|
+        if ProductOrder.find_by(order: order, product: self)
+          return true
+        end
+      end
+      return false
+    end
 end

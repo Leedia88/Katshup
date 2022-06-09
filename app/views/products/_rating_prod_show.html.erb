@@ -1,0 +1,23 @@
+<div class="container">
+  <p> Evaluer le produit: </p>
+
+  <div class="row star-grade" data-startEditPage="true" >
+    <%= link_to product_evaluations_path(@product, grade: 1), method: :post,class:"btn-dark",remote: true, id: "one-star" do %>
+      <i class="fa-regular fa-star" ></i>
+    <%end%>    
+    <%= link_to product_evaluations_path(@product, grade: 2), method: :post,class:"btn-dark",remote: true, id: "two-star" do %>
+      <i class="fa-regular fa-star" ></i>
+    <%end%>    
+    <%= link_to product_evaluations_path(@product, grade: 3), method: :post,class:"btn-dark",remote: true, id:"three-star" do %>
+      <i class="fa-regular fa-star"></i>
+    <%end%>    
+    <%= link_to product_evaluations_path(@product, grade: 4), method: :post,class:"btn-dark",remote: true, id: "four-star" do %>
+      <i class="fa-regular fa-star" ></i>
+    <%end%>    
+    <%= link_to product_evaluations_path(@product, grade: 5), method: :post,class:"btn-dark",remote: true, id: "five-star" do %>
+      <i class="fa-regular fa-star" ></i>
+    <%end%>
+
+  </div>
+
+</div>
