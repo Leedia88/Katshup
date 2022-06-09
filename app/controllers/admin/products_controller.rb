@@ -13,7 +13,6 @@ class Admin::ProductsController < ApplicationController
     end
 
     def create
-        
         puts product_params
         @category = params[:cats_id].first
         puts @category

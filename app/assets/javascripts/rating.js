@@ -9,13 +9,13 @@ const grade = () => {
     let e = button.previousElementSibling;
     let j = button.nextElementSibling;
     while (e != null) {
-      e.firstElementChild?.classList.add('fa-solid');
-      e.firstElementChild?.classList.remove('fa-regular');
+      e.firstElementChild.classList.add('fa-solid');
+      e.firstElementChild.classList.remove('fa-regular');
       e = e.previousElementSibling;
     }
     while (j != null) {
-      j.firstElementChild?.classList.add('fa-regular');
-      j.firstElementChild?.classList.remove('fa-solid');
+      j.firstElementChild.classList.add('fa-regular');
+      j.firstElementChild.classList.remove('fa-solid');
       j = j.nextElementSibling;
     }
   })})
