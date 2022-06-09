@@ -11,7 +11,7 @@ const grade = () => {
     while (e != null){
       e.firstElementChild?.classList.add('fa-solid');
       e.firstElementChild?.classList.remove('fa-regular');
-      e = e.previousElementSibling
+      e = e.previousElementSibling;
     }
     while (j != null){
       j.firstElementChild?.classList.add('fa-regular');
