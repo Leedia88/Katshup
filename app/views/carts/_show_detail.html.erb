@@ -3,7 +3,19 @@
 </div>
 
 <div class="row mt-3" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;"></div>
-<div class="d-flex align-items-center justify-content-evenly">
-  <%= link_to "Payer la commande", new_user_order_path(current_user.id) ,class:"btn mt-1 mr-3" %>
+<div class="d-flex align-items-center justify-content-evenly order-btns">
+  <%= link_to "Payer la commande", new_user_order_path(current_user.id) ,class:"btn mt-1 mr-3 order-btn" %>
+  <div class="stripe-btn">
+      <%= form_tag user_orders_path do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Total : <%=cart.total_amount%>€"
+              data-amount="<%= @stripe_amount %>"
+              data-locale="auto"
+              data-currency="EUR">
+          </script>
+      <% end %>
+  </div>
   <%= button_to 'Vider le Panier', user_cart_path(current_user,cart), class:'btn mt-1 mb-0', style: 'background-color:white; color:black' ,method: :delete, remote: true %> 
 </div>
+
