@@ -8,6 +8,7 @@
 
 require 'faker'
 
+ProductCategory.destroy_all
 Evaluation.destroy_all
 CartProduct.destroy_all 
 Cart.destroy_all 
@@ -17,7 +18,7 @@ User.destroy_all
 Product.destroy_all 
 Category.destroy_all
 Evaluation.destroy_all
-ProductCategory.destroy_all
+
 
 User.create(email: "admin@thp.com", password: "adminadmin", is_admin: true)
 ### Generate 10 categories
